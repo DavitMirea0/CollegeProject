@@ -1,0 +1,18 @@
+*{
+    margin: 0%;
+}
+a{
+    color: green;
+}
+
+a:hover{
+    color: rgb(255, 0, 162);
+    font-weight: bold;
+}
+.new1{
+    font-size: 24px;
+    color: blueviolet
+}
+#colorId{
+    color: chartreuse;
+}
