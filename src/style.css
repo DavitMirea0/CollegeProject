@@ -16,3 +16,14 @@ a:hover{
 #colorId{
     color: chartreuse;
 }
+dialog { 
+    padding: 1.25rem; 
+    border: 12px solid blue;
+    border-radius: 12px; 
+}
+dialog::backdrop { background: rgba(9,136,85,0.5); }
+.form-actions { 
+    display:flex;
+    gap:.5rem;
+    margin-top:1rem; 
+}
