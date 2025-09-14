@@ -4,4 +4,4 @@
 Этот репозиторий является каркасом для будущего веб-приложения.
 
 ## Ссылки
-- [Публичная страница на GitHub Pages](https://davitmirea0.github.io/CollegeProject/)
+- [Публичная страница на GitHub Pages](https://davitmirea0.github.io/CollegeProject/src/index.html)
