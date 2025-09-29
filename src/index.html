@@ -1,39 +1,61 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
-    <script src = 'main.js'></script>
+    <script src='main.js'></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Главная - test0</title>
     <meta name="description" content="Краткое описание главной страницы вашего сайта">
-    <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
-    <link rel = "stylesheet" href = "style.css">
+    <link rel="icon" href="../assets/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <!-- Шапка сайта -->
     <header>
-        <a href="/">test0</a>
-        <!-- Главное меню навигации -->
-        <nav>
-            <ul>
-                <li><a href="index.html">Главная</a></li>
-                <li><a href="about.html">О нас</a></li>
-                <li><a href="contacts.html">Контакты</a></li>
-            </ul>
-        </nav>
+        <a href="/"><img src="../assets/favicon.ico" </a>
+            <!-- Главное меню навигации -->
+            <nav>
+                <ul>
+                    <li><a class="activePage" href="index.html">Главная</a></li>
+                    <li><a href="about.html">О нас</a></li>
+                    <li><a href="contacts.html">Контакты</a></li>
+                </ul>
+            </nav>
     </header>
 
     <!-- Уникальное основное содержимое страницы -->
     <main>
         <h1>Добро пожаловать на наш сайт!</h1>
-
+        <!-- width/height уменьшают «скачок» макета (CLS); alt обязателен -->
+        <img src="../assets/mirea.jpg" alt="Конферец-МИРЭА" width="800" height="600" loading="lazy" decoding="async">
+        <button class="theme-toggle" type="button" aria-pressed="false">Тема</button>
+        <script defer>
+            const KEY = 'theme', btn = document.querySelector('.theme-toggle');
+            const prefersDark = matchMedia('(prefers-color-scheme: dark)').matches;
+            // Автовыбор: системная тема или сохранённый выбор пользователя
+            if (localStorage.getItem(KEY) === 'dark' || (!localStorage.getItem(KEY) &&
+                prefersDark)) {
+                document.body.classList.add('theme-dark');
+                btn?.setAttribute('aria-pressed', 'true');
+            }
+            // Переключение по кнопке с сохранением в localStorage
+            btn?.addEventListener('click', () => {
+                const isDark = document.body.classList.toggle('theme-dark');
+                btn.setAttribute('aria-pressed', String(isDark));
+                localStorage.setItem(KEY, isDark ? 'dark' : 'light');
+            });
+        </script>
         <!-- Секция 1 с якорем -->
         <section id="services">
             <h2>Наши услуги</h2>
             <p>Описание предоставляемых услуг...</p>
             <a href="#contacts">Связаться с нами</a> <!-- Якорная ссылка внутри страницы -->
         </section>
-
+        <div class="media">
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/Dro2k5K2omc?si=en5HHWMTQaUCcg-M" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>  
+        </div>
         <!-- Секция 2 с якорем -->
         <section id="portfolio">
             <h2>Портфолио</h2>
@@ -54,4 +76,5 @@
         <p>Телефон: +7 (924) 453-12-90</p>
     </footer>
 </body>
+
 </html>
